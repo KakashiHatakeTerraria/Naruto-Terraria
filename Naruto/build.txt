@@ -1,0 +1,3 @@
+author = Asura Otsutsuki & Indra Otsutsuki
+version = 0.0.0.1
+displayName = Naruto Terraria
