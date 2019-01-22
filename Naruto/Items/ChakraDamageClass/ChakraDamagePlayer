@@ -1,2 +1,38 @@
-Coding
-...
+using Terraria;
+using Terraria.ModLoader;
+
+namespace Naruto.Items.ChakraDamageClass
+{
+    // This class stores necessary player info for our custom damage class, such as damage multipliers and additions to knockback and crit.
+    public class ChakraDamagePlayer : ModPlayer
+    {
+        public static ChakraDamagePlayer ModPlayer(Player player)
+        {
+            return player.GetModPlayer<ChakraDamagePlayer>();
+        }
+
+        // Vanilla only really has damage multipliers in code
+        // And crit and knockback is usually just added to
+        // As a modder, you could make separate variables for multipliers and simple addition bonuses
+        public float ChakraDamage = 1f;
+        public float ChakraKnockback;
+        public int ChakraCrit;
+
+        public override void ResetEffects()
+        {
+            ResetVariables();
+        }
+
+        public override void UpdateDead()
+        {
+            ResetVariables();
+        }
+
+        private void ResetVariables()
+        {
+            ChakraDamage = 1f;
+            ChakraKnockback = 0f;
+            ChakraCrit = 0;
+        }
+    }
+}
